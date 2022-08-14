@@ -49,7 +49,6 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  height: 100vh;
   width: 75vw;
   margin: 0 auto;
 }
@@ -57,7 +56,7 @@ body {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 1rem;
 }
 
 .header {
@@ -108,12 +107,39 @@ body {
   color: #009394;
 }
 
-.weather {
-  background-color: #d7d7d7;
-  padding: 2rem 0;
+.block__tittle {
+  font-size: 2rem;
+  color: #009394;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.weather__current {
+.weather {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  background-color: #d7d7d7;
+  padding: 2rem;
+}
+
+.weather__loader {
+  width: 100%;
+  height: 100%;
+}
+
+.weather__loader img {
+  width: 100%;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.weather__current, .weather__hourly, .weather__nearby {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -129,7 +155,7 @@ body {
   padding: 2rem;
 }
 
-.weather__current .current__top {
+.weather__current .current__top, .weather__hourly .current__top, .weather__nearby .current__top {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -143,17 +169,17 @@ body {
   font-weight: 700;
 }
 
-.weather__current .current__top .current__tittle {
+.weather__current .current__top .current__tittle, .weather__hourly .current__top .current__tittle, .weather__nearby .current__top .current__tittle {
   -ms-grid-column-align: start;
       justify-self: start;
 }
 
-.weather__current .current__top #currentDate {
+.weather__current .current__top #currentDate, .weather__hourly .current__top #currentDate, .weather__nearby .current__top #currentDate {
   -ms-grid-column-align: end;
       justify-self: end;
 }
 
-.weather__current .current__body {
+.weather__current .current__body, .weather__hourly .current__body, .weather__nearby .current__body {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -163,7 +189,7 @@ body {
   justify-items: center;
 }
 
-.weather__current .current__status, .weather__current .current__temp, .weather__current .current__sunset {
+.weather__current .current__status, .weather__current .current__temp, .weather__current .current__sunset, .weather__hourly .current__status, .weather__hourly .current__temp, .weather__hourly .current__sunset, .weather__nearby .current__status, .weather__nearby .current__temp, .weather__nearby .current__sunset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -180,59 +206,110 @@ body {
   font-size: 2rem;
 }
 
-.weather__current .current__status #currentWeatherIcon img {
+.weather__current .current__status #currentWeatherIcon img, .weather__hourly .current__status #currentWeatherIcon img, .weather__nearby .current__status #currentWeatherIcon img {
   width: 8rem;
 }
 
-.weather__current .current__temp {
+.weather__current .current__temp, .weather__hourly .current__temp, .weather__nearby .current__temp {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
-.weather__current .current__temp #currentTemp {
+.weather__current .current__temp #currentTemp, .weather__hourly .current__temp #currentTemp, .weather__nearby .current__temp #currentTemp {
   font-size: 6rem;
   font-weight: 700;
 }
 
-.weather__current .current__sunset {
+.weather__current .current__sunset, .weather__hourly .current__sunset, .weather__nearby .current__sunset {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
-.weather__current .current__sunset .divTable {
+.weather__current .current__sunset .divTable, .weather__hourly .current__sunset .divTable, .weather__nearby .current__sunset .divTable {
   display: table;
   width: 100%;
 }
 
-.weather__current .current__sunset .divTableRow {
+.weather__current .current__sunset .divTableRow, .weather__hourly .current__sunset .divTableRow, .weather__nearby .current__sunset .divTableRow {
   display: table-row;
 }
 
-.weather__current .current__sunset .divTableHeading {
+.weather__current .current__sunset .divTableHeading, .weather__hourly .current__sunset .divTableHeading, .weather__nearby .current__sunset .divTableHeading {
   background-color: #eee;
   display: table-header-group;
 }
 
 .weather__current .current__sunset .divTableCell,
-.weather__current .current__sunset .divTableHead {
+.weather__current .current__sunset .divTableHead, .weather__hourly .current__sunset .divTableCell,
+.weather__hourly .current__sunset .divTableHead, .weather__nearby .current__sunset .divTableCell,
+.weather__nearby .current__sunset .divTableHead {
   display: table-cell;
   padding: 3px 10px;
 }
 
-.weather__current .current__sunset .divTableHeading {
+.weather__current .current__sunset .divTableHeading, .weather__hourly .current__sunset .divTableHeading, .weather__nearby .current__sunset .divTableHeading {
   background-color: #eee;
   display: table-header-group;
   font-weight: bold;
 }
 
-.weather__current .current__sunset .divTableFoot {
+.weather__current .current__sunset .divTableFoot, .weather__hourly .current__sunset .divTableFoot, .weather__nearby .current__sunset .divTableFoot {
   background-color: #eee;
   display: table-footer-group;
   font-weight: bold;
 }
 
-.weather__current .current__sunset .divTableBody {
+.weather__current .current__sunset .divTableBody, .weather__hourly .current__sunset .divTableBody, .weather__nearby .current__sunset .divTableBody {
+  display: table-row-group;
+}
+
+.weather__current .nearby__inner, .weather__hourly .nearby__inner, .weather__nearby .nearby__inner {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.weather__current .nearby__item, .weather__hourly .nearby__item, .weather__nearby .nearby__item {
+  padding: 2rem;
+  border: 1px solid #000;
+}
+
+.divTable {
+  display: table;
+  width: 100%;
+}
+
+.divTableRow {
+  display: table-row;
+}
+
+.divTableHeading {
+  display: table-header-group;
+}
+
+.divTableCell,
+.divTableHead {
+  display: table-cell;
+  padding: 3px 10px;
+}
+
+.divTableHeading {
+  display: table-header-group;
+  font-weight: bold;
+}
+
+.divTableFoot {
+  background-color: #eee;
+  display: table-footer-group;
+  font-weight: bold;
+}
+
+.divTableBody {
   display: table-row-group;
 }
