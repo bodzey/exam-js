@@ -17,65 +17,95 @@
 				<div class="header__inner">
 					<h1 class="header__tittle">My Weather</h1>
 					<div class="header__search">
-						<input type="text" name="headerSearch" id="headerSearch" placeholder="Don't use! Not implemented yet!">
+						<form action="GET" id="form" class="form">
+							<div class="form__inner">
+								<input type="text" value="" name="headerSearch" id="headerSearch" placeholder="Enter city name">
+								<input type="submit" class="form-submit" id="form-submit" value="OK">
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</header>
 
 		<main class="main">
-			<div class="weather" id="weatherWidget">
-				<div class="container">
-					<div class="weather__current">
+			<div class="container">
+				<div class="weather" id="weatherWidget">
 
-						<div class="current__top">
-							<h2 class="current__tittle">Current Weather</h2>
-							<h2 id="currentCity">&nbsp;</h2>
-							<h2 id="currentDate">&nbsp;</h2>
-						</div>
+					<div class="weather__current" id="currentWeather"></div>
 
-						<div class="current__body">
+					<div class="weather__hourly" id="hourlyWeather">
+						<h2 class="block__tittle">Hourly</h2>
 
-							<div class="current__status">
-								<div id="currentWeatherIcon">&nbsp;</div>
-								<h2 id="currentWeatherStatus">&nbsp;</h2>
-							</div>
-							<div class="current__temp">
-								<h2 id="currentTemp">&nbsp;</h2>
-								<h2 id="currentFeelsLikeTemp">&nbsp;</h2>
-							</div>
-							<div class="current__sunset">
-								<div class="divTable">
-									<div class="divTableBody">
-										<div class="divTableRow">
-											<div class="divTableCell">Sunrise:</div>
-											<div class="divTableCell" id="currentWeatherSunrise">&nbsp;</div>
-										</div>
-										<div class="divTableRow">
-											<div class="divTableCell">Sunset:</div>
-											<div class="divTableCell" id="currentWeatherSunset">&nbsp;</div>
-										</div>
-										<div class="divTableRow">
-											<div class="divTableCell">Duration:</div>
-											<div class="divTableCell" id="currentWeatherDuration">&nbsp;</div>
-										</div>
-									</div>
+						<div class="divTable">
+							<div class="divTableBody">
+								<div class="divTableRow">
+									<div class="divTableCell">&nbsp;today</div>
+									<div class="divTableCell">7pm&nbsp;</div>
+									<div class="divTableCell">8pm&nbsp;</div>
+									<div class="divTableCell">9pm&nbsp;</div>
+									<div class="divTableCell">10pm&nbsp;</div>
+									<div class="divTableCell">&nbsp;11pm</div>
+									<div class="divTableCell">&nbsp;12am</div>
+								</div>
+								<div class="divTableRow">
+									<div class="divTableCell">&nbsp;</div>
+									<div class="divTableCell">&nbsp;img</div>
+									<div class="divTableCell">&nbsp;img</div>
+									<div class="divTableCell">&nbsp;img</div>
+									<div class="divTableCell">&nbsp;img</div>
+									<div class="divTableCell">&nbsp;img</div>
+									<div class="divTableCell">&nbsp;img</div>
+								</div>
+								<div class="divTableRow">
+									<div class="divTableCell">&nbsp;Forecast</div>
+									<div class="divTableCell">&nbsp;Sunny</div>
+									<div class="divTableCell">&nbsp;Sunny</div>
+									<div class="divTableCell">&nbsp;Sunny</div>
+									<div class="divTableCell">&nbsp;Sunny</div>
+									<div class="divTableCell">&nbsp;Sunny</div>
+									<div class="divTableCell">&nbsp;Sunny</div>
+								</div>
+								<div class="divTableRow">
+									<div class="divTableCell">&nbsp;Temp</div>
+									<div class="divTableCell">&nbsp;15</div>
+									<div class="divTableCell">&nbsp;15</div>
+									<div class="divTableCell">&nbsp;15</div>
+									<div class="divTableCell">15&nbsp;</div>
+									<div class="divTableCell">&nbsp;15</div>
+									<div class="divTableCell">15&nbsp;</div>
+								</div>
+								<div class="divTableRow">
+									<div class="divTableCell">&nbsp;RealFeel</div>
+									<div class="divTableCell">&nbsp;13</div>
+									<div class="divTableCell">&nbsp;13</div>
+									<div class="divTableCell">&nbsp;13</div>
+									<div class="divTableCell">&nbsp;13</div>
+									<div class="divTableCell">&nbsp;13</div>
+									<div class="divTableCell">&nbsp;13</div>
+								</div>
+								<div class="divTableRow">
+									<div class="divTableCell">&nbsp;Wind</div>
+									<div class="divTableCell">&nbsp;11 ESE</div>
+									<div class="divTableCell">&nbsp;11 ESE</div>
+									<div class="divTableCell">&nbsp;11 ESE</div>
+									<div class="divTableCell">&nbsp;11 ESE</div>
+									<div class="divTableCell">&nbsp;11 ESE</div>
+									<div class="divTableCell">11 ESE&nbsp;</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
-
-					<!-- <div class="weather__hourly">
-						<div class="hourly__top">
-							<h2 class="hourly__tittle">Hourly</h2>
-
+					<div class="weather__nearby" id="nearbyWeather">
+						<h2 class="block__tittle">Nearby Places</h2>
+						<div class="nearby__inner">
+							<div class="nearby__item">1</div>
+							<div class="nearby__item">2</div>
+							<div class="nearby__item">3</div>
+							<div class="nearby__item">4</div>
 						</div>
-					</div> -->
-
+					</div>
 				</div>
-
-			</div>
 		</main>
 	</div>
 
